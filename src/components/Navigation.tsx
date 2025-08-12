@@ -67,7 +67,7 @@ export default function Navigation() {
                   </div>
                 </div>
                 <span className="text-xl font-space font-bold text-white">
-                  GLOBINET
+                  GLOBIWEB
                 </span>
               </motion.div>
             </Link>

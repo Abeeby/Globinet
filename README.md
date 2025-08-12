@@ -1,6 +1,6 @@
-# 🚀 GLOBINET - Agence Web & Solutions Digitales Premium
+# 🚀 GLOBIWEB - Agence Web & Solutions Digitales Premium
 
-Site vitrine ultra-moderne pour l'agence Globinet avec une expérience immersive mêlant animations 3D, motion design et storytelling interactif.
+Site vitrine ultra-moderne pour l'agence Globiweb avec une expérience immersive mêlant animations 3D, motion design et storytelling interactif.
 
 ## ✨ Caractéristiques
 
@@ -34,7 +34,7 @@ Site vitrine ultra-moderne pour l'agence Globinet avec une expérience immersive
 
 ```bash
 # Cloner le repository
-git clone https://github.com/Abeeby/Globinet.git
+git clone https://github.com/Abeeby/Globiweb.git
 
 # Installer les dépendances
 npm install
@@ -103,8 +103,8 @@ Le site est entièrement responsive avec des adaptations spécifiques pour :
 
 ## 📄 License
 
-© 2024 Globinet. Tous droits réservés.
+© 2024 Globiweb. Tous droits réservés.
 
 ---
 
-**Créé avec ❤️ par Globinet - Créateurs d'expériences digitales**
+**Créé avec ❤️ par Globiweb - Créateurs d'expériences digitales**
