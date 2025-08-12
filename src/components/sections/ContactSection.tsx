@@ -11,21 +11,21 @@ const contactMethods = [
   {
     icon: '📧',
     title: 'Email',
-    value: 'hello@globinet.com',
-    link: 'mailto:hello@globinet.com',
+    value: 'info@globiweb.com',
+    link: 'mailto:info@globiweb.com',
     color: '#00F5FF'
   },
   {
     icon: '📱',
     title: 'Téléphone',
-    value: '+33 1 23 45 67 89',
-    link: 'tel:+33123456789',
+    value: '+41 21 505 00 62',
+    link: 'tel:+41215050062',
     color: '#9B51E0'
   },
   {
     icon: '📍',
     title: 'Adresse',
-    value: 'Paris, France',
+    value: 'Rue du Collège 18, 1260 Nyon',
     link: '#',
     color: '#FF00A8'
   }
@@ -500,8 +500,8 @@ export default function ContactSection() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1 }}
                   >
-                    <div className="text-6xl mb-4">🌍</div>
-                    <p className="text-white font-space font-bold text-xl">Paris, France</p>
+                    <div className="text-6xl mb-4">🇨🇭</div>
+                    <p className="text-white font-space font-bold text-xl">Nyon, Suisse</p>
                     <p className="text-gray-400 font-sora text-sm mt-2">Disponible dans le monde entier</p>
                   </motion.div>
                 </div>

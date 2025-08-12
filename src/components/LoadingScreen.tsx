@@ -116,7 +116,7 @@ export default function LoadingScreen() {
             {/* Logo animé */}
             <div className="mb-12 perspective-1000">
               <h1 className="text-7xl md:text-9xl font-space font-bold">
-                {'GLOBINET'.split('').map((letter, i) => (
+                {'GLOBIWEB'.split('').map((letter, i) => (
                   <span 
                     key={i}
                     className="logo-letter inline-block gradient-text"
