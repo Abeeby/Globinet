@@ -5,8 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "next build && next export",
+    "export": "next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy:prepare": "npm run build:static && cp .htaccess out/.htaccess",
+    "deploy:test": "npx serve out"
   },
   "dependencies": {
     "next": "14.0.4",
