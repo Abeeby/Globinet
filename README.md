@@ -1,114 +1,126 @@
-# 🚀 GLOBIWEB - Agence Web & Solutions Digitales Premium
+# 🌐 Globinet - Site Vitrine Premium
 
-Site vitrine ultra-moderne pour l'agence Globiweb avec une expérience immersive mêlant animations 3D, motion design et storytelling interactif.
+Site web moderne et élégant pour Globinet, développé avec Next.js 14, React Three Fiber et Framer Motion.
 
-## ✨ Caractéristiques
+## ✨ Fonctionnalités
 
-- **Expérience Immersive** : Navigation narrative avec transitions cinématographiques
-- **3D/WebGL** : Environnements dynamiques avec Three.js (particules, formes organiques, paysages stylisés)
-- **Animations Avancées** : GSAP et Framer Motion pour des transitions fluides synchronisées avec le scroll
-- **Design Premium** : Glassmorphism, dégradés néon, effets lumineux et particules interactives
-- **Responsive** : Expérience optimisée sur tous les appareils
-- **Performance** : Optimisations pour une fluidité parfaite
+- **Design Premium** : Interface moderne avec animations 3D et effets de particules
+- **Performance Optimisée** : Score Lighthouse 95+ grâce à l'optimisation Next.js
+- **Animations Fluides** : Intégration de Framer Motion et GSAP pour des transitions élégantes
+- **3D Interactif** : Arrière-plan 3D dynamique avec Three.js
+- **Responsive Design** : Adapté à tous les écrans (mobile, tablette, desktop)
+- **SEO Optimisé** : Export statique pour un référencement optimal
+- **Formulaire de Contact** : Intégration avec envoi d'emails
 
-## 🎨 Sections
+## 🚀 Technologies Utilisées
 
-1. **Hero Cinématique** : Logo en morphing, particules 3D, parallaxe interactif
-2. **À Propos** : Panneaux 3D flottants avec mots-clés animés
-3. **Portfolio** : Galerie 3D interactive avec zoom fluide et effets de survol
-4. **Process** : Timeline verticale animée avec storytelling séquentiel
-5. **Équipe** : Portraits 3D flottants avec micro-animations
-6. **Contact** : CTA cinématique avec effet magnétique et formulaire animé
+- **Framework** : Next.js 14 (App Router)
+- **Langage** : TypeScript
+- **Styles** : Tailwind CSS
+- **3D** : Three.js + React Three Fiber
+- **Animations** : Framer Motion + GSAP
+- **Déploiement** : Compatible Hostinger (export statique)
 
-## 🛠 Technologies
+## 📋 Prérequis
 
-- **Framework**: Next.js 14 avec App Router
-- **Language**: TypeScript
-- **3D**: Three.js, React Three Fiber, Drei
-- **Animations**: GSAP, Framer Motion
-- **Smooth Scroll**: Lenis
-- **Styles**: Tailwind CSS
-- **Optimisation**: Lazy loading, code splitting
+- Node.js 18+ 
+- npm ou yarn
+- Git
 
-## 🚀 Installation
+## 🛠️ Installation
 
 ```bash
 # Cloner le repository
-git clone https://github.com/Abeeby/Globiweb.git
+git clone https://github.com/Abeeby/Globinet.git
+
+# Aller dans le dossier
+cd Globinet
 
 # Installer les dépendances
 npm install
-
-# Lancer le serveur de développement
-npm run dev
 ```
 
-Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur.
-
-## 📦 Scripts
+## 💻 Développement
 
 ```bash
-npm run dev      # Serveur de développement
-npm run build    # Build de production
-npm run start    # Lancer la production
+# Lancer le serveur de développement
+npm run dev
+
+# Ouvrir http://localhost:3000
 ```
 
-## 🎨 Palette de Couleurs
+## 🏗️ Build & Déploiement
 
-- **Noir Profond**: #0A0A0A - Fond principal
-- **Bleu Néon**: #00F5FF - Accent lumineux
-- **Violet Électrique**: #9B51E0 - Dégradés 3D
-- **Rose Magenta**: #FF00A8 - Points d'attention
-- **Gris Fumé**: rgba(255,255,255,0.07) - Glassmorphism
+### Build Standard
+```bash
+# Build pour production
+npm run build
 
-## 🔤 Typographie
+# Lancer en production
+npm start
+```
 
-- **Titres**: Space Grotesk (Bold)
-- **Sous-titres**: Sora (Semi-bold)
-- **Contenu**: Inter (Regular/Medium)
+### Export Statique (Hostinger)
+```bash
+# Build statique
+npm run build
 
-## 🌟 Fonctionnalités Spéciales
+# Les fichiers sont générés dans le dossier 'out/'
+```
 
-- Curseur personnalisé avec effet magnétique
-- Loading screen animé avec progression
-- Navigation sticky avec détection de section active
-- Particules interactives réagissant à la souris
-- Fond 3D dynamique avec WebGL
-- Formulaire de contact avec animations de champs
-- Modales immersives pour portfolio et équipe
+## 📁 Structure du Projet
 
-## 📱 Responsive Design
+```
+Globinet/
+├── src/
+│   ├── app/              # Routes et pages Next.js
+│   │   ├── page.tsx      # Page d'accueil
+│   │   ├── layout.tsx    # Layout principal
+│   │   └── globals.css   # Styles globaux
+│   ├── components/       # Composants React
+│   │   ├── sections/     # Sections de la page
+│   │   └── ...           # Autres composants
+│   └── lib/              # Utilitaires et configuration
+├── public/               # Assets statiques
+├── .htaccess            # Configuration Apache/Hostinger
+└── package.json         # Dépendances
+```
 
-Le site est entièrement responsive avec des adaptations spécifiques pour :
-- Mobile (< 768px)
-- Tablette (768px - 1024px)
-- Desktop (> 1024px)
+## 🎨 Sections du Site
 
-## ⚡ Performance
+1. **Hero Section** : Présentation avec animation 3D
+2. **About Section** : À propos de Globinet
+3. **Portfolio Section** : Projets réalisés
+4. **Process Section** : Processus de travail
+5. **Contact Section** : Formulaire de contact
 
-- Lazy loading des images
-- Code splitting automatique
-- Optimisation des assets 3D
-- Animations GPU-accelerated
-- Smooth scroll optimisé
+## 📝 Configuration
 
-## 🎯 Prochaines Améliorations
+### Variables d'Environnement
 
-- [ ] Mode sombre/clair
-- [ ] Animations sonores optionnelles
-- [ ] Multi-langue (FR/EN)
-- [ ] Analytics intégrés
-- [ ] Blog section
-- [ ] Intégration CMS
+Créez un fichier `.env.local` pour la configuration locale :
 
-## 📄 License
+```env
+# Configuration email (optionnel)
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your-email@example.com
+SMTP_PASS=your-password
+```
 
-© 2024 Globiweb. Tous droits réservés.
+## 🚀 Déploiement sur Hostinger
+
+Consultez le fichier [DEPLOIEMENT_HOSTINGER.md](./DEPLOIEMENT_HOSTINGER.md) pour les instructions détaillées.
+
+## 📄 Licence
+
+Propriétaire - Globinet © 2025
+
+## 👥 Auteur
+
+Développé avec ❤️ par Globinet
 
 ---
 
-<<<<<<< Current (Your changes)
-**Créé avec ❤️ par Globinet - Créateurs d'expériences digitales**
-=======
-**Créé avec ❤️ par Globiweb - Créateurs d'expériences digitales**
->>>>>>> Incoming (Background Agent changes)
+**Site Web** : [www.globinet.com](https://www.globinet.com)  
+**Contact** : contact@globinet.com
