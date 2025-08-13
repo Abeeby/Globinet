@@ -1,79 +1,85 @@
 #!/bin/bash
 
-# Script de déploiement pour Hostinger
-# Utilisation: ./deploy.sh
+# Script de déploiement pour Globinet - Compatible Linux/Mac/WSL
+# Usage: ./deploy.sh
 
-echo "🚀 Début du déploiement pour Hostinger..."
-echo ""
+echo "🚀 Début du déploiement Globinet..."
+echo "=================================="
 
-# Vérifier si Node.js est installé
+# Couleurs pour les messages
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+# Vérification de Node.js
 if ! command -v node &> /dev/null; then
-    echo "❌ Node.js n'est pas installé. Veuillez l'installer d'abord."
+    echo -e "${RED}❌ Node.js n'est pas installé${NC}"
     exit 1
 fi
 
-# Installer les dépendances si nécessaire
+echo -e "${GREEN}✓ Node.js détecté${NC}"
+
+# Installation des dépendances si nécessaire
 if [ ! -d "node_modules" ]; then
-    echo "📦 Installation des dépendances..."
+    echo -e "${YELLOW}📦 Installation des dépendances...${NC}"
     npm install
 fi
 
-# Nettoyer le dossier de build précédent
-if [ -d "out" ]; then
-    echo "🧹 Nettoyage du dossier de build précédent..."
-    rm -rf out
-fi
-
-# Créer le build statique
-echo "🔨 Construction du site statique..."
+# Build du projet
+echo -e "${YELLOW}🔨 Construction du site...${NC}"
 npm run build
 
-# Vérifier si le build a réussi
+# Vérification que le build s'est bien passé
 if [ ! -d "out" ]; then
-    echo "❌ Erreur lors de la construction du site."
+    echo -e "${RED}❌ Erreur: Le dossier 'out' n'a pas été créé${NC}"
     exit 1
 fi
 
-# Copier les fichiers nécessaires
-echo "📋 Copie des fichiers de configuration..."
-cp .htaccess out/.htaccess 2>/dev/null || echo "⚠️  Fichier .htaccess non trouvé"
-cp public/send-email.php out/send-email.php 2>/dev/null || echo "⚠️  Fichier send-email.php non trouvé"
+# Copie des fichiers nécessaires pour Hostinger
+echo -e "${YELLOW}📋 Copie des fichiers de configuration...${NC}"
 
-# Créer un fichier robots.txt si nécessaire
-if [ ! -f "out/robots.txt" ]; then
-    echo "🤖 Création du fichier robots.txt..."
-    cat > out/robots.txt << EOF
-User-agent: *
-Allow: /
-Sitemap: https://votre-domaine.com/sitemap.xml
-EOF
+# Copie du .htaccess
+if [ -f ".htaccess" ]; then
+    cp .htaccess out/.htaccess
+    echo -e "${GREEN}✓ .htaccess copié${NC}"
+else
+    echo -e "${YELLOW}⚠️  .htaccess non trouvé${NC}"
 fi
 
-# Afficher les statistiques du build
-echo ""
-echo "✅ Build terminé avec succès !"
-echo ""
-echo "📊 Statistiques du build :"
-echo "  - Nombre de fichiers HTML : $(find out -name "*.html" | wc -l)"
-echo "  - Nombre de fichiers CSS : $(find out -name "*.css" | wc -l)"
-echo "  - Nombre de fichiers JS : $(find out -name "*.js" | wc -l)"
-echo "  - Taille totale : $(du -sh out | cut -f1)"
-echo ""
+# Copie du script PHP d'envoi d'email
+if [ -f "public/send-email.php" ]; then
+    cp public/send-email.php out/send-email.php
+    echo -e "${GREEN}✓ send-email.php copié${NC}"
+else
+    echo -e "${YELLOW}⚠️  send-email.php non trouvé${NC}"
+fi
 
-# Instructions pour le déploiement
-echo "📤 Prochaines étapes pour le déploiement :"
+# Résumé
 echo ""
-echo "1. Connectez-vous à votre panneau Hostinger"
-echo "2. Allez dans le Gestionnaire de fichiers"
-echo "3. Naviguez vers le dossier public_html"
-echo "4. Supprimez les anciens fichiers (gardez une sauvegarde)"
-echo "5. Uploadez tout le contenu du dossier 'out/'"
+echo "=================================="
+echo -e "${GREEN}✅ Build terminé avec succès !${NC}"
 echo ""
-echo "💡 Conseil : Pour tester localement avant le déploiement :"
-echo "   npm run deploy:test"
+echo "📁 Les fichiers sont prêts dans le dossier 'out/'"
 echo ""
-echo "📧 N'oubliez pas de configurer l'envoi d'emails :"
-echo "   - Modifiez src/lib/email-config.ts"
-echo "   - Ou configurez public/send-email.php avec votre email"
+echo "📤 Prochaines étapes pour déployer sur Hostinger:"
+echo "   1. Connectez-vous à votre panneau Hostinger"
+echo "   2. Utilisez le gestionnaire de fichiers ou FTP"
+echo "   3. Uploadez TOUT le contenu du dossier 'out/' dans 'public_html'"
+echo "   4. Assurez-vous que le fichier .htaccess est bien présent"
 echo ""
-echo "🎉 Bonne chance pour votre déploiement !"
+echo "💡 Pour tester localement avant le déploiement:"
+echo "   cd out && python3 -m http.server 3000"
+echo "   Puis ouvrez http://localhost:3000"
+echo ""
+echo "=================================="
+
+# Option pour tester localement
+read -p "Voulez-vous tester le site localement maintenant ? (o/n) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Oo]$ ]]; then
+    echo -e "${YELLOW}🌐 Lancement du serveur de test...${NC}"
+    echo "Ouvrez http://localhost:3000 dans votre navigateur"
+    echo "Appuyez sur Ctrl+C pour arrêter le serveur"
+    cd out && python3 -m http.server 3000
+fi
