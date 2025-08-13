@@ -12,6 +12,11 @@ export default function HeroSection() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const subtitleRef = useRef<HTMLParagraphElement>(null)
   
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+  
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start']
@@ -107,7 +112,7 @@ export default function HeroSection() {
             ref={titleRef}
             className="text-6xl md:text-8xl lg:text-9xl font-space font-bold mb-6 perspective-1000"
           >
-            <span className="gradient-text">GLOBINET</span>
+            <span className="gradient-text">GLOBIWEB</span>
           </h1>
 
           {/* Sous-titre */}
@@ -131,6 +136,7 @@ export default function HeroSection() {
               className="group relative px-8 py-4 overflow-hidden rounded-full"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToId('about')}
             >
               <div className="absolute inset-0 bg-gradient-neon rounded-full blur-md opacity-75 group-hover:opacity-100 transition-opacity" />
               <div className="relative flex items-center gap-2 px-8 py-4 bg-gradient-neon rounded-full">
@@ -147,6 +153,7 @@ export default function HeroSection() {
               className="group relative px-8 py-4 glass rounded-full border border-bleu-neon/30 hover:border-bleu-neon transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => scrollToId('portfolio')}
             >
               <span className="font-sora font-medium text-white group-hover:text-bleu-neon transition-colors">
                 Voir nos réalisations

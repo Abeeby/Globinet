@@ -249,6 +249,10 @@ export default function AboutSection() {
             className="group relative px-8 py-4 overflow-hidden rounded-full"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const el = document.getElementById('contact')
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }}
           >
             <div className="absolute inset-0 bg-gradient-neon rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
             <div className="relative px-8 py-4 glass border border-bleu-neon/30 rounded-full">

@@ -67,7 +67,7 @@ export default function Navigation() {
                   </div>
                 </div>
                 <span className="text-xl font-space font-bold text-white">
-                  GLOBINET
+                  GLOBIWEB
                 </span>
               </motion.div>
             </Link>
@@ -100,7 +100,8 @@ export default function Navigation() {
               ))}
               
               {/* CTA Button */}
-              <motion.button
+              <motion.a
+                href="#contact"
                 className="relative px-6 py-2.5 font-sora font-semibold text-sm overflow-hidden group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -109,7 +110,7 @@ export default function Navigation() {
                 <div className="relative px-6 py-2.5 bg-gradient-neon rounded-full">
                   <span className="text-noir-profond">Démarrer un projet</span>
                 </div>
-              </motion.button>
+              </motion.a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -165,17 +166,19 @@ export default function Navigation() {
                 </motion.a>
               ))}
               
-              <motion.button
+              <motion.a
+                href="#contact"
                 className="relative mt-8 px-8 py-3 font-sora font-semibold overflow-hidden group"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 <div className="absolute inset-0 bg-gradient-neon rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
                 <div className="relative px-8 py-3 bg-gradient-neon rounded-full">
                   <span className="text-noir-profond">Démarrer un projet</span>
                 </div>
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         )}

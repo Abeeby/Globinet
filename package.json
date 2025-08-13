@@ -1,29 +1,33 @@
 {
-  "name": "globinet",
+  "name": "globiweb",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy:prepare": "npm run build && copy .htaccess out\\.htaccess && copy public\\send-email.php out\\send-email.php",
+    "deploy:test": "npx serve out"
   },
   "dependencies": {
-    "next": "14.0.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "three": "^0.160.0",
-    "@react-three/fiber": "^8.15.12",
     "@react-three/drei": "^9.92.7",
-    "gsap": "^3.12.4",
-    "framer-motion": "^10.16.16",
-    "lenis": "^1.0.33",
+    "@react-three/fiber": "^8.15.12",
     "@studio-freight/lenis": "^1.0.33",
     "clsx": "^2.1.0",
-    "tailwind-merge": "^2.2.0"
+    "framer-motion": "^10.16.16",
+    "gsap": "^3.12.4",
+    "lenis": "^1.0.33",
+    "next": "14.0.4",
+    "nodemailer": "^6.9.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.0",
+    "three": "^0.160.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "@types/three": "^0.160.0",

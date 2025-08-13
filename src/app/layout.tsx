@@ -5,12 +5,13 @@ import CustomCursor from '@/components/CustomCursor'
 import LoadingScreen from '@/components/LoadingScreen'
 
 export const metadata: Metadata = {
-  title: 'Globinet - Agence Web & Solutions Digitales Premium',
+  title: 'Globiweb - Agence Web & Solutions Digitales Premium',
   description: 'Créateurs d\'expériences digitales immersives. Design, développement et innovation au service de votre marque.',
   keywords: 'agence web, solutions digitales, design, développement, Three.js, WebGL, motion design',
-  authors: [{ name: 'Globinet' }],
+  authors: [{ name: 'Globiweb' }],
+  metadataBase: new URL('https://www.globiweb.com'),
   openGraph: {
-    title: 'Globinet - Agence Web & Solutions Digitales Premium',
+    title: 'Globiweb - Agence Web & Solutions Digitales Premium',
     description: 'Créateurs d\'expériences digitales immersives',
     type: 'website',
   },

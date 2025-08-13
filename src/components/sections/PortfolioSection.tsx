@@ -74,6 +74,11 @@ export default function PortfolioSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
 
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start']
@@ -280,6 +285,7 @@ export default function PortfolioSection() {
             className="group relative px-8 py-4 overflow-hidden rounded-full"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToId('contact')}
           >
             <div className="absolute inset-0 bg-gradient-neon rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
             <div className="relative px-8 py-4 glass border border-violet-electrique/30 rounded-full">
@@ -363,6 +369,14 @@ export default function PortfolioSection() {
                     className="px-6 py-3 bg-gradient-neon rounded-full font-sora font-semibold text-noir-profond"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      if (!selectedProject) return
+                      if (selectedProject.link && selectedProject.link !== '#') {
+                        window.open(selectedProject.link, '_blank')
+                      } else {
+                        scrollToId('contact')
+                      }
+                    }}
                   >
                     Voir le projet
                   </motion.button>
