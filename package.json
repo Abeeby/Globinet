@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "BUILD_TARGET=static next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy:prepare": "npm run build && copy .htaccess out\\.htaccess && copy public\\send-email.php out\\send-email.php",
+    "deploy:hostinger": "npm run build:static && copy .htaccess out\\.htaccess && copy public\\send-email.php out\\send-email.php",
     "deploy:test": "npx serve out"
   },
   "dependencies": {
